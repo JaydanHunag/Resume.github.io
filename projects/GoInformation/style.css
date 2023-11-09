@@ -1,0 +1,233 @@
+/* 因為 CSS default styling 某些 element 會預設 padding or margin 
+所以要先將整個視窗都設定成 0 ，並且設定 box-sizing : border-box ;*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /* 設定標楷體 */
+  font-family: DFkai-sb, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* 原本預設是粗體，恢復成正常 */
+  font-weight: normal;
+}
+
+header div.top {
+  padding: 1rem;
+  background-image: url(./images/background.png);
+}
+
+header div.top h1 {
+  font-size: 2.5rem;
+}
+
+header div.top h3 {
+  font-size: 1rem;
+}
+
+header nav ul {
+  /* 將 ul 變成橫排 */
+  display: flex;
+  /* 將 ul 前的黑點取消 */
+  list-style-type: none;
+  background-color: black;
+  opacity: 0.8;
+}
+
+header nav ul li {
+  /* 設定每個超鏈接的間距 */
+  padding: 0.8rem 1.2rem;
+}
+
+header nav ul li a {
+  color: white;
+  /* 設定沒有底線 */
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.active {
+  color: yellow;
+}
+
+header nav ul li a:hover {
+  color: yellow;
+  transition: all 0.3s;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main.no-flex {
+  display: block;
+}
+
+main section {
+  padding: 1rem;
+}
+
+section.left {
+  flex: 1 1 200px;
+}
+
+section.right {
+  flex: 4 1 500px;
+}
+
+section.left img {
+  width: 90%;
+}
+
+section.left h3 {
+  margin-bottom: 0.7rem;
+}
+
+section.left table {
+  margin-top: 1rem;
+}
+
+section.left table,
+tr,
+td {
+  padding: 0.25rem;
+}
+
+section.left table tr td {
+  font-size: 1.1rem;
+  padding: 5px;
+}
+
+section.right h3 {
+  font-size: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+p {
+  padding: 0.5rem 0rem;
+}
+
+section.right ul {
+  margin-left: 2rem;
+}
+
+.player {
+  margin: 2rem;
+  border: 4px solid burlywood;
+  padding: 0.5rem;
+}
+
+/* 棋士的名稱設定 */
+.player h4 {
+  font-size: 1.5rem;
+  color: rgb(0, 90, 91);
+}
+
+.player h5 {
+  font-size: 1.05rem;
+  color: rgb(6, 120, 120);
+}
+
+div.japan {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+div.japan div.image {
+  flex: 1 1 300px;
+  /* 將圖片在切換熒幕大小時也能固定置中 影片 4:21處*/
+  display: flex;
+  align-items: center;
+}
+
+div.japan div.image img {
+  width: 100%;
+}
+
+div.japan div.info {
+  flex: 3 1 600px;
+  padding: 2rem;
+}
+
+div.japan div.info ul {
+  margin-left: 2rem;
+}
+
+div.japan div.info ul li {
+  padding: 3px;
+}
+
+div.competition {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+div.competition div.text {
+  flex: 5 1 300px;
+  padding: 1rem;
+}
+
+div.competition div.text h3 {
+  font-size: 2rem;
+  color: rgb(12, 122, 92);
+}
+
+div.competition div.text ul {
+  padding-top: 0.3rem;
+  margin-left: 2rem;
+}
+
+div.competition div.text ul li {
+  padding: 5px;
+}
+#piechart {
+  flex: 1 1 300px;
+  /* 這是我自己加的 */
+  display: flex;
+  align-items: center;
+}
+
+/* 中國棋院設定 */
+
+section.china h3 {
+  font-size: 2rem;
+  color: rgb(0, 90, 91);
+}
+
+section.china table {
+  margin-top: 5px;
+}
+
+section.china table th {
+  color: white;
+  background-color: darkcyan;
+  padding: 3px;
+}
+
+section.china table td {
+  padding-left: 0.5rem;
+}
+
+/* 海峰棋院CSS設定 */
+
+section.taiwan h3 {
+  font-size: 2rem;
+  color: rgb(0, 90, 91);
+}
+
+section.taiwan ul {
+  margin-top: 0.5rem;
+}
+
+section.taiwan li {
+  margin-left: 2rem;
+}

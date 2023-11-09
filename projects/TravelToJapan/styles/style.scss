@@ -1,0 +1,243 @@
+//設定網站主題顏色
+$themeColor: rgba(152, 57, 255, 0.5);
+
+// 基礎設定
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: bolder;
+}
+
+body {
+  position: relative;
+
+  img.fixed-image {
+    min-height: 100vh;
+    position: fixed;
+    width: 100%;
+    z-index: -5; //設定 -5是為了不想要這張圖覆蓋到次網頁的所有物件
+    bottom: 0;
+    left: 0;
+  }
+  header {
+    background-color: white; //富士山不會覆蓋整個背景
+    display: flex; //希望 section 和 nav 可以並排
+    flex-wrap: wrap;
+    align-items: center; // 讓 section 和 nav 兩個位置可以置中
+
+    //設定 sticky header 移動式導覽列
+    position: sticky;
+    top: 0;
+    z-index: 10; //覆蓋整個畫面
+    box-shadow: 0 10px 6px -6px #777; //設定陰影 區分開導覽列跟網頁內容
+
+    section.logo {
+      flex: 2 1 400px;
+      display: flex; //讓圖片和 h1能夠並排
+      //border: 2px solid green; 方便查看位置
+      align-items: center; //讓圖片和h1能夠置中
+      h1 {
+        font-size: 2.5rem;
+      }
+      img {
+        width: 6vw;
+        height: 6vw;
+      }
+    }
+
+    nav {
+      flex: 5 1 500px;
+      // border: 2px solid red; 方便查看位置
+      ul {
+        display: flex; // 讓 li 能並排
+        list-style-type: none; //不要有痘痘
+        justify-content: space-around; // 將間隔取開
+
+        li {
+          a {
+            color: black;
+            text-decoration: none; // 不要底線
+            font-size: 1.5rem;
+            transition: all 0.2s ease; //設定轉換時間
+            &:hover {
+              color: $themeColor;
+              border-bottom: 3px solid $themeColor; //粗底線
+              padding-bottom: 0.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    section.background-img {
+      //這是要設定背景圖片
+      min-height: 70vh;
+      background-image: url(../images/日本櫻花.jpg);
+      background-size: cover; //把背景放大至容器大小
+      background-position: center; //將背景內的照片畫面置中
+      transition: all 0.75s ease;
+      position: relative;
+      z-index: 0; // stacking context
+
+      //讓文字置中
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      div.filter {
+        background-color: rgba(0, 0, 0, 0.5);
+        width: 100%;
+        min-height: 70vh;
+        position: absolute; //讓參考點固定在 background-img 上
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      h3 {
+        color: white;
+        font-size: 2.5rem;
+        text-align: center; //文字置中
+      }
+    }
+
+    section.info-circles {
+      background-color: white;
+      padding: 2rem 1rem;
+
+      h3 {
+        text-align: center;
+        font-size: 2rem;
+      }
+
+      div.circles {
+        // border: 3px solid black; 方便查看排版
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        div.circle {
+          padding: 1rem;
+          // border: 3px solid red; 方便查看排版
+          flex: 0 1 250px;
+          display: flex; // 讓圖片和文字可以並排
+          align-items: center;
+          flex-direction: column; //讓圖片和文字可以垂直並排
+          p {
+            margin-top: 0.5rem;
+          }
+          img {
+            width: 80%;
+            border-radius: 50%;
+            transition: all 0.1s ease-in;
+            padding: 0.3rem;
+            &:hover {
+              border: 3px solid $themeColor;
+            }
+          }
+        }
+      }
+    }
+
+    section.empty-container {
+      min-height: 70vh;
+      background-color: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      h3 {
+        font-size: 2rem;
+        color: white;
+      }
+    }
+
+    section.google-map {
+      background-color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+
+      h3 {
+        font-size: 2.5rem;
+      }
+      p {
+        font-size: 1.25rem;
+        margin: 1rem;
+      }
+      iframe {
+        width: 100%;
+        height: 40vh;
+      }
+    }
+  }
+
+  footer {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    section.logo {
+      //border: 3px solid yellow;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      img {
+        //border: 3px solid red;
+        width: 20vw;
+      }
+
+      h3 {
+        padding: 0.25rem;
+        font-size: 2.5rem;
+      }
+    }
+
+    section.links {
+      margin-top: 1rem;
+      a {
+        img {
+          width: 5vh;
+          margin: 0rem 1rem;
+        }
+      }
+    }
+  }
+}
+
+// Header RWD 部分
+@media screen and (max-width: 700px) {
+  body {
+    header {
+      section.logo {
+        flex-direction: column;
+        img {
+          width: 50vw;
+          height: 50vw;
+        }
+      }
+      nav {
+        ul {
+          flex-direction: column;
+          li {
+            padding: 0.5rem 0.25rem;
+          }
+        }
+      }
+    }
+  }
+}
